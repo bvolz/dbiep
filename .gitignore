@@ -1,0 +1,12 @@
+#
+# Ignore IDE specific stuff
+#
+
+/**/.idea/
+/**/*.iml
+
+#
+# Ignore Maven output
+#
+
+/**/target/

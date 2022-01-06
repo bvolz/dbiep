@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.bv.utils.dbiep</groupId>
+    <artifactId>dbiep-parent</artifactId>
+    <version>0.1</version>
+
+    <name>Database Import / Export Program (DBIEP): Parent</name>
+    <description>High-performance data import / export tool</description>
+    <inceptionYear>2022</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>${project.basedir}/LICENSE</url>
+            <comments>MIT License</comments>
+        </license>
+    </licenses>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>dbiep-bom</module>
+    </modules>
+
+    <scm>
+        <connection>scm:git:https://github.com/bvolz/dbiep.git</connection>
+        <url>https://github.com/bvolz/dbiep.git</url>
+        <tag>development-0.2</tag>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- include BOM -->
+            <dependency>
+                <groupId>de.bv.utils.dbiep</groupId>
+                <artifactId>dbiep-bom</artifactId>
+                <version>0.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+
+            <!-- License Maven Plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <configuration>
+                    <licenseName>mit</licenseName>
+                </configuration>
+                <executions>
+                    <!-- download third party licenses -->
+                    <execution>
+                        <id>download-licenses</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>download-licenses</goal>
+                        </goals>
+                    </execution>
+
+                    <!-- create a list of third party licenses and verify the build -->
+                    <execution>
+                        <id>add-third-party</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-third-party</goal>
+                        </goals>
+                        <configuration>
+
+                            <!--
+                                 Note: we use a strict license verification. Licenses not listed
+                                       below or missing license information will fail the build!
+                            -->
+                            <includedLicenses>
+                                <!-- Apache Software License, Version 2.0 -->
+                                <includedLicense>The Apache Software License, Version 2.0</includedLicense>
+                                <includedLicense>Apache License, Version 2.0</includedLicense>
+                                <includedLicense>Apache 2.0</includedLicense>
+
+                                <!-- MIT License -->
+                                <includedLicense>The MIT License</includedLicense>
+                                <includedLicense>MIT License</includedLicense>
+                            </includedLicenses>
+
+                            <failOnBlacklist>true</failOnBlacklist>
+                            <failOnMissing>true</failOnMissing>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Versions Maven Plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.8.1</version>
+                <configuration>
+                    <processAllModules>true</processAllModules>
+                    <processDependencies>true</processDependencies>
+                    <processProject>true</processProject>
+                    <processPlugins>true</processPlugins>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
