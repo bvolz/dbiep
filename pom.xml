@@ -22,6 +22,7 @@
 
     <modules>
         <module>dbiep-bom</module>
+        <module>dbiep-textfile-analyzer</module>
     </modules>
 
     <scm>
@@ -31,8 +32,15 @@
     </scm>
 
     <properties>
+        <!-- Encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <licensesOutputFileEncoding>UTF-8</licensesOutputFileEncoding>
+
+        <!-- Java Language Level -->
+        <maven.compiler.release>8</maven.compiler.release>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
     <dependencyManagement>
@@ -94,10 +102,17 @@
                                 <includedLicense>The Apache Software License, Version 2.0</includedLicense>
                                 <includedLicense>Apache License, Version 2.0</includedLicense>
                                 <includedLicense>Apache 2.0</includedLicense>
+                                <includedLicense>Apache 2</includedLicense>
 
                                 <!-- MIT License -->
                                 <includedLicense>The MIT License</includedLicense>
                                 <includedLicense>MIT License</includedLicense>
+
+                                <!-- Eclipse Public License - v 1.0 -->
+                                <includedLicense>Eclipse Public License - v 1.0</includedLicense>
+
+                                <!-- three clause BSD -->
+                                <includedLicense>BSD-3-Clause</includedLicense>
                             </includedLicenses>
 
                             <failOnBlacklist>true</failOnBlacklist>
@@ -119,6 +134,22 @@
                     <processPlugins>true</processPlugins>
                 </configuration>
             </plugin>
+
+            <!-- Templating Maven Plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>templating-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <id>filter-sources</id>
+                        <goals>
+                            <goal>filter-sources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 

@@ -10,11 +10,6 @@
 
     <packaging>pom</packaging>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
 
@@ -74,6 +69,14 @@
                 <artifactId>logback-classic</artifactId>
                 <version>1.2.10</version>
             </dependency>
+
+            <!-- Janino: required by Logback -->
+            <dependency>
+                <groupId>org.codehaus.janino</groupId>
+                <artifactId>janino</artifactId>
+                <version>3.1.6</version>
+            </dependency>
+
 
             <!-- OpenCSV -->
             <dependency>
