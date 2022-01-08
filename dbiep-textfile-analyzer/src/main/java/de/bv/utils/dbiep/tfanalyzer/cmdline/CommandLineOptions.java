@@ -22,7 +22,7 @@ public enum CommandLineOptions {
 
     // general parameters
     DRY_RUN("d", "dry", "if set, does not alter anything but merely prints changes on the console", (v, o, c) -> c.setDryRun(true)),
-    WRITE_CONFIG("wc", "writeCfg", null, false, "writes configuration to given file", true, "file", String.class, (v, o, c) -> {
+    WRITE_CONFIG("wc", "writeCfg", null, false, "writes configuration to the specified file", true, "file", String.class, (v, o, c) -> {
         c.setCfgFile(o.convertValue(v));
         c.setWriteCfg(true);
     }),
