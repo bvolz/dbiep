@@ -18,11 +18,12 @@ public class TFAnalyzer {
             parseInput(configuration);
 
             ModelSerializer modelSerializer = new ModelSerializer();
-            if (configuration.isWriteCfg()) {
+            if (configuration.isWriteCfg() && !configuration.isDryRun()) {
                 modelSerializer.serialize(configuration.getCfgFile(), configuration);
             } else {
                 modelSerializer.serialize(configuration);
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
