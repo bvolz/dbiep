@@ -66,6 +66,20 @@
                 <version>3.8.1</version>
             </plugin>
 
+            <!-- Maven Surefire Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+
+            <!-- Maven Failsafe Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+
             <!-- License Maven Plugin -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -100,6 +114,7 @@
                             <includedLicenses>
                                 <!-- Apache Software License, Version 2.0 -->
                                 <includedLicense>The Apache Software License, Version 2.0</includedLicense>
+                                <includedLicense>The Apache License, Version 2.0</includedLicense>
                                 <includedLicense>Apache License, Version 2.0</includedLicense>
                                 <includedLicense>Apache 2.0</includedLicense>
                                 <includedLicense>Apache 2</includedLicense>
@@ -108,8 +123,11 @@
                                 <includedLicense>The MIT License</includedLicense>
                                 <includedLicense>MIT License</includedLicense>
 
-                                <!-- Eclipse Public License - v 1.0 -->
+                                <!-- Eclipse Public License v1.0 -->
                                 <includedLicense>Eclipse Public License - v 1.0</includedLicense>
+
+                                <!-- Eclipse Public License v2.0 -->
+                                <includedLicense>Eclipse Public License v2.0</includedLicense>
 
                                 <!-- three clause BSD -->
                                 <includedLicense>BSD-3-Clause</includedLicense>

@@ -24,15 +24,7 @@ public enum CommandLineOptions {
     DRY_RUN("d", "dry", "if set, does not alter anything but merely prints changes on the console", (v, o, c) -> c.setDryRun(true)),
     WRITE_CONFIG("wc", "writeCfg", null, false, "writes configuration to given file", true, "file", String.class, (v, o, c) -> {
         c.setCfgFile(o.convertValue(v));
-
-        if (v != null) {
-            if (c.isReadCfg()) {
-                throw new IllegalStateException("Options 'readCfg' and 'writeCfg' may never be specified together!");
-            }
-        }
-
         c.setWriteCfg(true);
-        c.setReadCfg(false);
     }),
     INPUT_DIRECTORY("i", "inputFolder", null, false, "specifies the folder from which data is loaded", true, "folder", String.class, (v, o, c) -> c.setDirectory(o.convertValue(v))),
     FILE_EXTENSION("e", "extension", "csv", false, "file extension of input files within the input directory, defaults to 'csv'", true, "ext", String.class, (v, o, c) -> c.setFileExtension(o.convertValue(v))),
@@ -40,7 +32,6 @@ public enum CommandLineOptions {
     // settings for heuristic
     GUESS_MAX("g", "guessMax", 1000, false, "maximum number of lines to read from each input file for guessing data types, defaults to '1000' (special values: -1 means all lines, 0 means do not guess at all", true, "n", Integer.class, (v, o, c) -> c.setGuess(o.convertValue(v))),
     COLUMN_HEADINGS("headings", "columnHeadings", "if specified, input files contain the names of the columns within the first line", (v, o, c) -> c.setHeader(true)),
-    //DROP_EMPTY_COLUMNS("dropEmpty", "dropEmpty", "if specified, empty columns at the end of a line will be dropped", (v, o, c) -> c.setDropEmptyColumns(true)),
     SEPARATOR("sep", "separatorChar", ',', false, "separation character, defaults to ','", true, "c", Character.class, (v, o, c) -> c.setSeparationCharacter(TFAnalyzerUtils.convertString2Character(v))),
     ESCAPE_CHARACTER("escapeChar", "escapeChar", '\\', false, "escape character, defaults to '\\'", true, "c", Character.class, (v, o, c) -> c.setEscapeCharacter(TFAnalyzerUtils.convertString2Character(v))),
     QUOTATION_CHARACTER("quotationChar", "quotationChar", '"', false, "quotation character, defaults to '\"'", true, "c", Character.class, (v, o, c) -> c.setQuotationCharacter(TFAnalyzerUtils.convertString2Character(v))),

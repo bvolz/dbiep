@@ -8,9 +8,11 @@ import de.bv.utils.dbiep.tfanalyzer.processor.DirectoryProcessor;
 import java.io.IOException;
 
 public class TFAnalyzer {
+    private static Configuration configuration;
+
     public static void main(String[] args) {
         CommandLineOptionsParser cmdLineParser = new CommandLineOptionsParser(args);
-        Configuration configuration = cmdLineParser.getConfiguration();
+        configuration = cmdLineParser.getConfiguration();
 
         try {
             parseInput(configuration);
@@ -21,16 +23,9 @@ public class TFAnalyzer {
             } else {
                 modelSerializer.serialize(configuration);
             }
-
-            System.exit(0);
-
         } catch (IOException e) {
             e.printStackTrace();
-
-            System.exit(-1);
         }
-
-        cmdLineParser.printUsage();
     }
 
     private static void parseInput(final Configuration configuration) throws IOException {
@@ -38,5 +33,9 @@ public class TFAnalyzer {
                 .init(configuration)
                 .process()
         ;
+    }
+
+    public static Configuration getConfiguration() {
+        return configuration;
     }
 }
