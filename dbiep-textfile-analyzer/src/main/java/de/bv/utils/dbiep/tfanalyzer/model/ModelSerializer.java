@@ -18,7 +18,7 @@ public class ModelSerializer {
         try {
             getObjectMapper().writeValue(
                     new File(filename),
-                    configuration.getFileConfigurations()
+                    configuration
             );
         } catch (IOException e) {
             e.printStackTrace();
@@ -30,7 +30,7 @@ public class ModelSerializer {
         try {
             getObjectMapper().writeValue(
                     System.out,
-                    configuration.getFileConfigurations()
+                    configuration
             );
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,15 +38,13 @@ public class ModelSerializer {
         }
     }
 
-    public void deserialize(final String filename, final Configuration configuration) throws IOException {
+    public Configuration deserialize(final String filename) throws IOException {
+        Configuration configuration;
         try {
-            List<FileConfiguration> csvFiles = getObjectMapper().readValue(
+             configuration = getObjectMapper().readValue(
                     new File(filename),
-                    new TypeReference<List<FileConfiguration>>() {}
+                    new TypeReference<Configuration>() {}
             );
-
-            configuration.getFileConfigurations().clear();
-            configuration.getFileConfigurations().addAll(csvFiles);
         } catch (IOException e) {
             e.printStackTrace();
             throw e;
@@ -55,6 +53,8 @@ public class ModelSerializer {
         // post process: add path
         configuration.getFileConfigurations()
                 .forEach(f -> f.setPath(configuration.getDirectory() + File.separator + f.getFilename() + "." + configuration.getFileExtension()));
+
+        return configuration;
     }
 
 }

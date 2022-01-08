@@ -1,5 +1,6 @@
 package de.bv.utils.dbiep.tfanalyzer.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import de.bv.utils.dbiep.tfanalyzer.cmdline.CommandLineOptions;
 import lombok.Data;
@@ -22,11 +23,11 @@ public class Configuration {
     /**
      * If set to {@code true}, a dry-run is performed, i.e. no changes are made to the database or to files.
      */
+    @JsonIgnore
     private boolean dryRun = false;
 
     private String cfgFile;
     private boolean writeCfg = false;
-    private boolean readCfg = false;
 
     private String directory = System.getProperty("user.dir");
     private String fileExtension = (String) CommandLineOptions.FILE_EXTENSION.getDefaultValue();
