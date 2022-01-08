@@ -7,6 +7,15 @@
     <version>0.1</version>
 
     <name>Database Import / Export Program (DBIEP): BOM</name>
+    <url>https://www.bernhard-volz.de/projects/dbiep/</url>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>${project.basedir}/LICENSE</url>
+            <comments>MIT License</comments>
+        </license>
+    </licenses>
 
     <packaging>pom</packaging>
 

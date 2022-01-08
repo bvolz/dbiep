@@ -7,13 +7,15 @@
     <version>0.1</version>
 
     <name>Database Import / Export Program (DBIEP): Parent</name>
+    <url>https://www.bernhard-volz.de/projects/dbiep/</url>
     <description>High-performance data import / export tool</description>
     <inceptionYear>2022</inceptionYear>
+
 
     <licenses>
         <license>
             <name>MIT</name>
-            <url>${project.basedir}/LICENSE</url>
+            <url>file://${project.basedir}/LICENSE</url>
             <comments>MIT License</comments>
         </license>
     </licenses>
@@ -22,6 +24,7 @@
 
     <modules>
         <module>dbiep-bom</module>
+        <module>dbiep-spi</module>
         <module>dbiep-textfile-analyzer</module>
     </modules>
 
@@ -53,6 +56,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- DBIEP SPI -->
+            <dependency>
+                <groupId>de.bv.utils.dbiep</groupId>
+                <artifactId>dbiep-spi</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -122,6 +133,7 @@
                                 <!-- MIT License -->
                                 <includedLicense>The MIT License</includedLicense>
                                 <includedLicense>MIT License</includedLicense>
+                                <includedLicense>MIT</includedLicense>
 
                                 <!-- Eclipse Public License v1.0 -->
                                 <includedLicense>Eclipse Public License - v 1.0</includedLicense>

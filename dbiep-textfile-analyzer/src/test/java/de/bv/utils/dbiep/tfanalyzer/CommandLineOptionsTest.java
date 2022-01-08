@@ -1,4 +1,4 @@
-package de.bv.utils.dbiep.tfanalyzer.simple;
+package de.bv.utils.dbiep.tfanalyzer;
 
 import de.bv.utils.dbiep.tfanalyzer.TFAnalyzer;
 import de.bv.utils.dbiep.tfanalyzer.TFAnalyzerBaseTest;
