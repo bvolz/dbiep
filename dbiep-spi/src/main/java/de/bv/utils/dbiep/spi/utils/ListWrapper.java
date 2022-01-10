@@ -3,6 +3,7 @@ package de.bv.utils.dbiep.spi.utils;
 import com.google.common.collect.Lists;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,6 +53,11 @@ public class ListWrapper<E> {
 
     public ListWrapper<E> add(E element) {
         this.wrappedList.add(element);
+        return this;
+    }
+
+    public ListWrapper<E> addAll(Collection<E> elements) {
+        this.wrappedList.addAll(elements);
         return this;
     }
 

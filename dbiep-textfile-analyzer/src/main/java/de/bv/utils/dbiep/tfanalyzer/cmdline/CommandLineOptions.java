@@ -1,5 +1,6 @@
 package de.bv.utils.dbiep.tfanalyzer.cmdline;
 
+import de.bv.utils.dbiep.spi.utils.DBIEPUtils;
 import de.bv.utils.dbiep.tfanalyzer.model.Configuration;
 import de.bv.utils.dbiep.tfanalyzer.util.TFAnalyzerUtils;
 import lombok.AllArgsConstructor;
@@ -32,9 +33,9 @@ public enum CommandLineOptions {
     // settings for heuristic
     GUESS_MAX("g", "guessMax", 1000, false, "maximum number of lines to read from each input file for guessing data types, defaults to '1000' (special values: -1 means all lines, 0 means do not guess at all", true, "n", Integer.class, (v, o, c) -> c.setGuess(o.convertValue(v))),
     COLUMN_HEADINGS("headings", "columnHeadings", "if specified, input files contain the names of the columns within the first line", (v, o, c) -> c.setHeader(true)),
-    SEPARATOR("sep", "separatorChar", ',', false, "separation character, defaults to ','", true, "c", Character.class, (v, o, c) -> c.setSeparationCharacter(TFAnalyzerUtils.convertString2Character(v))),
-    ESCAPE_CHARACTER("escapeChar", "escapeChar", '\\', false, "escape character, defaults to '\\'", true, "c", Character.class, (v, o, c) -> c.setEscapeCharacter(TFAnalyzerUtils.convertString2Character(v))),
-    QUOTATION_CHARACTER("quotationChar", "quotationChar", '"', false, "quotation character, defaults to '\"'", true, "c", Character.class, (v, o, c) -> c.setQuotationCharacter(TFAnalyzerUtils.convertString2Character(v))),
+    SEPARATOR("sep", "separatorChar", ',', false, "separation character, defaults to ','", true, "c", Character.class, (v, o, c) -> c.setSeparationCharacter(DBIEPUtils.convertString2Character(v))),
+    ESCAPE_CHARACTER("escapeChar", "escapeChar", '\\', false, "escape character, defaults to '\\'", true, "c", Character.class, (v, o, c) -> c.setEscapeCharacter(DBIEPUtils.convertString2Character(v))),
+    QUOTATION_CHARACTER("quotationChar", "quotationChar", '"', false, "quotation character, defaults to '\"'", true, "c", Character.class, (v, o, c) -> c.setQuotationCharacter(DBIEPUtils.convertString2Character(v))),
     CHARSET("charset", "charset", "UTF-8", false, "charset for files, defaults to 'UTF-8'", true, "name", String.class, (v, o, c) -> c.setCharset(o.convertValue(v))),
 
     DATE_FORMAT("dateFormat", "dateFormat", "yyyy-MM-dd HH:mm:ss", false, "date format used for reading timestamp data", true, "format", String.class, (v, o, c) -> c.setDateFormat(o.convertValue(v))),

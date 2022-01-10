@@ -25,6 +25,7 @@
     <modules>
         <module>dbiep-bom</module>
         <module>dbiep-spi</module>
+        <module>dbiep-core</module>
         <module>dbiep-textfile-analyzer</module>
     </modules>
 
@@ -61,6 +62,13 @@
             <dependency>
                 <groupId>de.bv.utils.dbiep</groupId>
                 <artifactId>dbiep-spi</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- DBIEP Core -->
+            <dependency>
+                <groupId>de.bv.utils.dbiep</groupId>
+                <artifactId>dbiep-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

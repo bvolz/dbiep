@@ -5,8 +5,8 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvValidationException;
-import de.bv.utils.dbiep.tfanalyzer.cmdline.CommandLineOption;
-import de.bv.utils.dbiep.tfanalyzer.cmdline.CommandLineOptionBuilder;
+import de.bv.utils.dbiep.spi.cmdline.CommandLineOption;
+import de.bv.utils.dbiep.spi.cmdline.CommandLineOptionBuilder;
 import de.bv.utils.dbiep.tfanalyzer.model.ColumnConfiguration;
 import de.bv.utils.dbiep.tfanalyzer.model.Configuration;
 import de.bv.utils.dbiep.tfanalyzer.model.FileConfiguration;
@@ -41,7 +41,7 @@ public class DirectoryProcessor {
 
     public List<CommandLineOption<?>> getCommandLineOptions() {
         return Lists.newArrayList(
-                CommandLineOptionBuilder.createIntegerOption(null, "directory.scanDepth", "todo", false, "n", 1)
+     //           CommandLineOptionBuilder.createIntegerOption(null, "directory.scanDepth", "todo", false, "n", 1)
         );
     }
 

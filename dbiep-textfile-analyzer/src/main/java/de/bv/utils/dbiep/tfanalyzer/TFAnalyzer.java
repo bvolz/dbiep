@@ -1,13 +1,34 @@
 package de.bv.utils.dbiep.tfanalyzer;
 
-import de.bv.utils.dbiep.tfanalyzer.cmdline.CommandLineOptionsParser;
-import de.bv.utils.dbiep.tfanalyzer.model.Configuration;
-import de.bv.utils.dbiep.tfanalyzer.model.ModelSerializer;
-import de.bv.utils.dbiep.tfanalyzer.processor.DirectoryProcessor;
+import de.bv.utils.dbiep.DBIEP;
 
-import java.io.IOException;
+public class TFAnalyzer extends DBIEP {
 
-public class TFAnalyzer {
+    protected TFAnalyzer(String[] args) {
+        super(args);
+    }
+
+    @Override
+    protected void dbiepMain() {
+
+    }
+
+    public static void main(String[] args) {
+        new TFAnalyzer(args).dbiepMain();
+    }
+
+    @Override
+    protected void printUsageHeader() {
+        System.out.printf("DBIEP TextFile Analyzer %s\n", de.bv.utils.dbiep.tfanalyzer.DBIEPConstants.PROJECT_VERSION);
+        System.out.println("----------------------------------------------------------------------------------\n");
+    }
+
+    @Override
+    protected String getCommandLineSyntax() {
+        return "tfanalyzer";
+    }
+
+    /*
     private static Configuration configuration;
 
     public static void main(String[] args) {
@@ -38,5 +59,5 @@ public class TFAnalyzer {
 
     public static Configuration getConfiguration() {
         return configuration;
-    }
+    }*/
 }

@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import de.bv.utils.dbiep.tfanalyzer.cmdline.CommandLineOptions;
 import lombok.Data;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.nio.charset.Charset;
 import java.util.Collections;
